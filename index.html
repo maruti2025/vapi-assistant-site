@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vapi Assistant</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; padding: 50px; }
-    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
-  </style>
-</head>
-<body>
-  <h1>Talk to My AI Assistant</h1>
-  <button id="start-btn">Start Talking</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vapi Assistant</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding: 50px;
+        background-color: #f4f4f4;
+      }
+      button {
+        padding: 12px 24px;
+        font-size: 18px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Talk to My AI Assistant</h1>
+    <button id="start-btn">Start Talking</button>
 
-  <!-- ✅ Import the Vapi library as a module -->
-  <script type="module">
-    import Vapi from "https://cdn.jsdelivr.net/npm/@vapi-ai/web/+esm";
+    <!-- ✅ Load Vapi via ES module -->
+    <script type="module">
+      import Vapi from "https://cdn.jsdelivr.net/npm/@vapi-ai/web/+esm";
 
-    document.getElementById("start-btn").addEventListener("click", () => {
-      const vapi = new Vapi({
-        apiKey: 'asst_ccc3dddb-56db-42f7-87f1-06c06256a5e5',
+      const startBtn = document.getElementById('start-btn');
+
+      startBtn.addEventListener('click', () => {
+        const vapi = new Vapi({
+          apiKey: 'asst_ccc3dddb-56db-42f7-87f1-06c06256a5e5', // your Vapi public API key
+        });
+
+        vapi.start({
+          assistant: 'asst_df3770eb-202e-4bf9-92eb-6875c94d11cf' // your assistant ID
+        });
       });
-
-      vapi.start({
-        assistant: 'asst_df3770eb-202e-4bf9-92eb-6875c94d11cf'
-      });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
