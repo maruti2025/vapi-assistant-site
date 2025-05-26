@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vapi Assistant</title>
+  <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web/dist/index.umd.js"></script>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Talk to My AI Assistant</h1>
+  <button onclick="startVapi()">Start Talking</button>
+  <script>
+    function startVapi() {
+      const vapi = new Vapi();
+      vapi.init({
+        apiKey: 'f28e710f-7ed0-4e17-97bb-5a91cb23ae33', // Replace with your key
+      });
+
+      vapi.start({
+        assistant: 'b05f05f1-67d2-4dd1-9592-a98e1ba669a4', // Replace with your assistant ID
+      });
+    }
+  </script>
+</body>
+</html>
