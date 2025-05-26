@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vapi Assistant</title>
-  <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web/dist/index.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web"></script>
   <style>
     body { font-family: sans-serif; text-align: center; padding: 50px; }
     button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
@@ -15,18 +15,14 @@
   <button onclick="startVapi()">Start Talking</button>
   <script>
     function startVapi() {
-      const vapi = new Vapi();
-      vapi.init({
-        apiKey: 'asst_ccc3dddb-56db-42f7-87f1-06c06256a5e5', // 🔁 Replace this with your actual Vapi public API key
+      const vapi = new Vapi({
+        apiKey: 'asst_ccc3dddb-56db-42f7-87f1-06c06256a5e5', // your public key
       });
 
       vapi.start({
-        assistant: 'asst_df3770eb-202e-4bf9-92eb-6875c94d11cf' // ✅ Use your assistant ID here with asst_ prefix
+        assistant: 'asst_df3770eb-202e-4bf9-92eb-6875c94d11cf' // your assistant ID
       });
     }
   </script>
 </body>
 </html>
-
-
-
