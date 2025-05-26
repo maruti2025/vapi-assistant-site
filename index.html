@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vapi Assistant</title>
-  <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web"></script>
+  <!-- ✅ Defer loading of Vapi script -->
+  <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web" defer></script>
   <style>
     body { font-family: sans-serif; text-align: center; padding: 50px; }
     button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
@@ -12,17 +13,21 @@
 </head>
 <body>
   <h1>Talk to My AI Assistant</h1>
-  <button onclick="startVapi()">Start Talking</button>
-  <script>
-    function startVapi() {
-      const vapi = new Vapi({
-        apiKey: 'asst_ccc3dddb-56db-42f7-87f1-06c06256a5e5', // your public key
-      });
+  <button id="start-btn">Start Talking</button>
 
-      vapi.start({
-        assistant: 'asst_df3770eb-202e-4bf9-92eb-6875c94d11cf' // your assistant ID
+  <!-- ✅ Run our script after the page is fully loaded -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("start-btn").addEventListener("click", () => {
+        const vapi = new Vapi({
+          apiKey: 'asst_ccc3dddb-56db-42f7-87f1-06c06256a5e5',
+        });
+
+        vapi.start({
+          assistant: 'asst_df3770eb-202e-4bf9-92eb-6875c94d11cf'
+        });
       });
-    }
+    });
   </script>
 </body>
 </html>
